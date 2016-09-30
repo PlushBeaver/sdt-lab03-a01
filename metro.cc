@@ -15,5 +15,7 @@ main() {
     //Scheme scheme = parse_scheme(cin);
     //cout << scheme << endl;
     cout << s <<endl;
+    Scheme scheme = parse_scheme(cin);
+    cout << scheme << endl;
     return 0;
 }
