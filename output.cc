@@ -18,7 +18,7 @@ operator<<(ostream& output, const Station& station) {
     Transit* current = station.transits.first;
     while (current)
     {
-      output <<"Transit to station "<< current->destination->name<<endl;
+      output << "Transit to station "<< *current<<endl;
       current=current->next;
     }
     return output;
@@ -30,16 +30,7 @@ operator<<(ostream& output, const Line& line) {
     Station* current = line.stations.first;
     while (current)
     {
-      output <<"Station "<< current->name <<endl;
-      if (current->transits.first != nullptr)
-      {
-      Transit* tekus = current->transits.first;
-       while (tekus)
-       {
-       output <<"transit to station "<<tekus->destination->name <<endl;
-       tekus= tekus->next;
-       }
-      }
+      output <<"Station "<< *current<<endl;
     current=current->next;
     }
     // TODO: печатать линию.
@@ -52,24 +43,10 @@ operator<<(ostream& output, const Scheme& scheme) {
     output<<"scheme metro "<<endl;
     while (current)
     {
-     output<<"Line "<< current->name <<endl;
-      Station* tekus = current->stations.first;
-      while (tekus)
-    {
-      output <<"Station "<< tekus->name <<endl;
-      if (tekus->transits.first != nullptr)
-      {
-      Transit* tekus1 = tekus->transits.first;
-       while (tekus1)
-       {
-       output <<"transit to station "<<tekus1->destination->name<<endl;
-       tekus1= tekus1->next;
-       }
-      }
-      tekus=tekus->next;
-    }
+     output<<"Line "<< *current <<endl;
+
     current=current->next;
     }
     // TODO: печатать схему.
     return output;
-}
+ }
