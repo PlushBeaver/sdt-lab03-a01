@@ -73,7 +73,7 @@ append_station(Line& line, Station* station) {
 	line.stations.last = station;
 	station->line = &line;
 }
-
+//wegw
 void // ј мы можем быть уверены, что станци€ есть на этой линии?
 	 // »ли что на этой линии вообще есть станции?
 	detach_station(Line& line, Station* station) {
